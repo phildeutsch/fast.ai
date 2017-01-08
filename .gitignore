@@ -1,8 +1,11 @@
 */data/*
 */submissions/*
+*/.ipynb_checkpoints/*
 
 *.pyc
 *.csv
 *.zip
 *.jpg
 *.swp
+
+.gitignore~
