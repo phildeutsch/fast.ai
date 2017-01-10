@@ -33,7 +33,6 @@ class Vgg16():
         self.create(size, include_top)
         self.get_classes()
 
-
     def get_classes(self):
         fname = 'imagenet_class_index.json'
         fpath = get_file(fname, self.FILE_PATH+fname, cache_subdir='models')
@@ -69,7 +68,8 @@ class Vgg16():
             include_top=False
 
         model = self.model = Sequential()
-        model.add(Lambda(vgg_preprocess, input_shape=(3,)+size))
+        model.add(Lambda(vgg_preprocess, input_shape=(3,)+size,
+            output_shape=(3,)+size))
 
         self.ConvBlock(2, 64)
         self.ConvBlock(2, 128)
@@ -129,4 +129,3 @@ class Vgg16():
     def test(self, path, batch_size=8):
         test_batches = self.get_batches(path, shuffle=False, batch_size=batch_size, class_mode=None)
         return test_batches, self.model.predict_generator(test_batches, test_batches.nb_sample)
-
