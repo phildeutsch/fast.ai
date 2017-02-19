@@ -1,7 +1,8 @@
-*/data/*
-*/submissions/*
-*/models/*
-*/.ipynb_checkpoints/*
+data/*
+submissions/*
+models/*
+.ipynb_checkpoints/*
+venv/*
 
 *.pyc
 *.csv
